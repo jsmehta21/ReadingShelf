@@ -176,52 +176,67 @@ export default function App() {
         )}
 
         {/* To Read */}
-        {tab === 'toRead' && (
-          <section>
-            <h2 style={{textAlign:'center'}}>To Read</h2>
-            <div className="grid">
-              {shelves.toRead.map(b => (
-                <BookCard key={b.id} book={b} actions={[
-                  { label: 'Reading', onClick: ()=> moveBookCloud(b,'reading') },
-                  { label: 'Finished', onClick: ()=> moveBookCloud(b,'finished') },
-                  { label: 'Remove', onClick: ()=> removeBookCloud(b) }
-                ]}/>
-              ))}
-            </div>
-          </section>
-        )}
+        {/* To Read */}
+{tab === 'toRead' && (
+  <section>
+    <h2 style={{ textAlign: 'center' }}>To Read</h2>
+    <p style={{ textAlign: 'center', color: '#666', marginBottom: '10px' }}>
+      {shelves.toRead.length} book{shelves.toRead.length !== 1 ? 's' : ''}
+    </p>
+    <div className="grid">
+      {shelves.toRead.map(b => (
+        <BookCard key={b.id} book={b} actions={[
+          { label: 'Reading', onClick: ()=> moveBookCloud(b,'reading') },
+          { label: 'Finished', onClick: ()=> moveBookCloud(b,'finished') },
+          { label: 'Remove', onClick: ()=> removeBookCloud(b) }
+        ]}/>
+      ))}
+    </div>
+  </section>
+)}
+
 
         {/* Reading */}
-        {tab === 'reading' && (
-          <section>
-            <h2 style={{textAlign:'center'}}>Reading</h2>
-            <div className="grid">
-              {shelves.reading.map(b => (
-                <BookCard key={b.id} book={b} actions={[
-                  { label: 'To Read', onClick: ()=> moveBookCloud(b,'toRead') },
-                  { label: 'Finished', onClick: ()=> moveBookCloud(b,'finished') },
-                  { label: 'Remove', onClick: ()=> removeBookCloud(b) }
-                ]}/>
-              ))}
-            </div>
-          </section>
-        )}
+        {/* Reading */}
+{tab === 'reading' && (
+  <section>
+    <h2 style={{ textAlign: 'center' }}>Reading</h2>
+    <p style={{ textAlign: 'center', color: '#666', marginBottom: '10px' }}>
+      {shelves.reading.length} book{shelves.reading.length !== 1 ? 's' : ''}
+    </p>
+    <div className="grid">
+      {shelves.reading.map(b => (
+        <BookCard key={b.id} book={b} actions={[
+          { label: 'To Read', onClick: ()=> moveBookCloud(b,'toRead') },
+          { label: 'Finished', onClick: ()=> moveBookCloud(b,'finished') },
+          { label: 'Remove', onClick: ()=> removeBookCloud(b) }
+        ]}/>
+      ))}
+    </div>
+  </section>
+)}
+
 
         {/* Finished */}
-        {tab === 'finished' && (
-          <section>
-            <h2 style={{textAlign:'center'}}>Finished</h2>
-            <div className="grid">
-              {shelves.finished.map(b => (
-                <BookCard key={b.id} book={b} actions={[
-                  { label: 'To Read', onClick: ()=> moveBookCloud(b,'toRead') },
-                  { label: 'Reading', onClick: ()=> moveBookCloud(b,'reading') },
-                  { label: 'Remove', onClick: ()=> removeBookCloud(b) }
-                ]}/>
-              ))}
-            </div>
-          </section>
-        )}
+        {/* Finished */}
+{tab === 'finished' && (
+  <section>
+    <h2 style={{ textAlign: 'center' }}>Finished</h2>
+    <p style={{ textAlign: 'center', color: '#666', marginBottom: '10px' }}>
+      {shelves.finished.length} book{shelves.finished.length !== 1 ? 's' : ''}
+    </p>
+    <div className="grid">
+      {shelves.finished.map(b => (
+        <BookCard key={b.id} book={b} actions={[
+          { label: 'To Read', onClick: ()=> moveBookCloud(b,'toRead') },
+          { label: 'Reading', onClick: ()=> moveBookCloud(b,'reading') },
+          { label: 'Remove', onClick: ()=> removeBookCloud(b) }
+        ]}/>
+      ))}
+    </div>
+  </section>
+)}
+
       </div>
 
       <footer className="footer">So many books, so little time!</footer>
